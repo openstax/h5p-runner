@@ -19,16 +19,6 @@ get a `.h5p` file for an activity that we want to run but don't support yet, and
 
 new libraries will be added, and any new patches for existing libraries will be updated.
 
-## h5p vendor code
-the vendor code distributed with h5p-standalone is incomplete and old, we copy it out of the h5p-php-library 
-and add it to this repo.
-
-copied out of https://github.com/h5p/h5p-php-library
-
-```
-cp -r /path/to/h5p-php-library/{fonts,images,js,styles} src/vendor/
-```
-
 ## run locally
 
 serve the libraries directory
@@ -52,6 +42,16 @@ serve -p 8080 runnder/dist/
 load an activity
 
 http://localhost:8080/?content=https://tomwoodward.github.io/h5p-test/h5p-test/activities/whatColorAreBerries
+
+## h5p vendor code
+the vendor code distributed with h5p-standalone is incomplete and old, we copy it out of the h5p-php-library 
+and add it to this repo.
+
+copied out of https://github.com/h5p/h5p-php-library
+
+```
+cp -r /path/to/h5p-php-library/{fonts,images,js,styles} src/vendor/
+```
 
 ## h5p-standalone
 
