@@ -101,11 +101,8 @@ const queryParams = queryString.parse(location.search)
 const h5pJsonPath = queryParams.content
 
 const options = {
-  //preventH5PInit: true,
   librariesPath: process.env.LIBRARIES_HOST,
   h5pJsonPath,
-  //frameJs: basePath + 'node_modules/h5p-standalone/dist/frame.bundle.js',
-  //frameCss: basePath + 'node_modules/h5p-standalone/dist/styles/h5p.css',
   frame: true, // Show frame and buttons below H5P
   copyright: true, // Display copyright button
   icon: true // Display H5P icon
