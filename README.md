@@ -21,6 +21,12 @@ new libraries will be added, and any new patches for existing libraries will be 
 
 ## run locally
 
+install serve
+
+```
+yarn global add serve
+```
+
 serve the libraries directory
 
 ```
