@@ -82,7 +82,7 @@ cp -r /path/to/h5p-php-library/{fonts,images,js,styles} src/vendor/
 
 ## h5p-standalone
 
-this project uses h5p-standalone to wire up the static assets of h5p. we monkeypatch
+this project uses [h5p-standalone](https://github.com/tunapanda/h5p-standalone) to wire up the static assets of h5p. we monkeypatch
 a few things to add support for `div` style rendering instead of iframe (because mostly
 we're using this inside iframes already). there are a few other things like the vendor
 code that aren't working totally great from h5p-standalone. we should consider
