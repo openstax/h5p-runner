@@ -49,6 +49,27 @@ load an activity
 
 http://localhost:8080/?content=https://tomwoodward.github.io/h5p-test/h5p-test/activities/whatColorAreBerries
 
+## to deploy libraries
+
+libraries are hosted in [RAM](https://github.com/openstax/ram), deploy them with the upload script.
+you will need to use [aws-access](https://github.com/openstax/aws-access#assuming-a-role-through-the-aws-cli)
+to assume a role allowed to do the upload first.
+
+```
+/path/to/ram/upload.bash [environment] h5p/libraries libraries/
+```
+
+## to deploy runner 
+
+the runner is hosted in [RAM](https://github.com/openstax/ram), deploy it with the upload script.
+you will need to use [aws-access](https://github.com/openstax/aws-access#assuming-a-role-through-the-aws-cli)
+to assume a role allowed to do the upload first.
+
+```
+(cd runner && LIBRARIES_HOST=https://ram.openstax.org/h5p/libraries yarn build)
+/path/to/ram/upload.bash [environment] h5p/runner runner/dist
+```
+
 ## h5p vendor code
 the vendor code distributed with h5p-standalone is incomplete and old, we copy it out of the h5p-php-library 
 and add it to this repo.
