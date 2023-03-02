@@ -1,7 +1,23 @@
 import { H5P as H5PStandalone } from 'h5p-standalone';
-import 'h5p-standalone/dist/frame.bundle'
-import './vendor/styles/h5p.css'
 import queryString from 'query-string';
+
+const loadVendor = () => Promise.all([
+  // @ts-ignore
+  import('h5p-standalone/dist/frame.bundle'),
+
+  // @ts-ignore
+  import('./vendor/styles/font-open-sans.css'),
+  // @ts-ignore
+  import('./vendor/styles/h5p-confirmation-dialog.css'),
+  // @ts-ignore
+  import('./vendor/styles/h5p-core-button.css'),
+  // @ts-ignore
+  import('./vendor/styles/h5p-hub-registration.css'),
+  // @ts-ignore
+  import('./vendor/styles/h5p-hub-sharing.css'),
+  // @ts-ignore
+  import('./vendor/styles/h5p.css'),
+]);
 
 declare global {
   // H5PStandalone adds this
@@ -58,10 +74,13 @@ H5PStandalone.prototype.initH5P = async function(generalIntegrationOptions: any,
     });
   }
   for (const style of styles) {
-    var styleTag = document.createElement('link');
-    styleTag.setAttribute('href', style);
-    styleTag.setAttribute('rel', 'stylesheet');
-    document.head.appendChild(styleTag);
+    await new Promise<void>(resolve => {
+      var styleTag = document.createElement('link');
+      styleTag.setAttribute('href', style);
+      styleTag.setAttribute('rel', 'stylesheet');
+      styleTag.onload = () => resolve();
+      document.head.appendChild(styleTag);
+    });
   }
   /*
    * end added stuff
@@ -106,7 +125,10 @@ const options = {
   copyright: true, // Display copyright button
   icon: true // Display H5P icon
 }
-new H5PStandalone(el, options);
+
+loadVendor().then(() => {
+  new H5PStandalone(el, options);
+});
 
 const logCountElement = document.getElementById('log-count');
 const logsElement = document.getElementById('logs');
