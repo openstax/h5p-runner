@@ -5,7 +5,7 @@ import queryString from 'query-string';
 
 declare global {
   // H5PStandalone adds this
-  interface Window { H5P: any; H5PIntegration: any; }
+  interface Window { H5P: any; H5PIntegration: any; __CONTENT_PATH?: string}
 }
 
 const H5PIntegration = window.H5PIntegration;
@@ -97,8 +97,7 @@ H5PStandalone.prototype.initH5P = async function(generalIntegrationOptions: any,
 
 const el = document.getElementById('h5p-container');
 
-const queryParams = queryString.parse(location.search)
-const h5pJsonPath = queryParams.content
+const h5pJsonPath = window.__CONTENT_PATH || queryString.parse(location.search).content
 
 const options = {
   librariesPath: process.env.LIBRARIES_HOST,
