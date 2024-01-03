@@ -42,7 +42,7 @@ build the runner
 serve the dist folder
 
 ```
-serve -p 8080 runnder/dist/
+serve -p 8080 runner/dist/
 ```
 
 load an activity
