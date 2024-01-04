@@ -1,10 +1,11 @@
 import { H5P as H5PStandalone } from 'h5p-standalone';
 import queryString from 'query-string';
 
-const loadVendor = () => Promise.all([
+const loadImports = () => Promise.all([
+  // @ts-ignore
+  import('./styles/loader.css'),
   // @ts-ignore
   import('h5p-standalone/dist/frame.bundle'),
-
   // @ts-ignore
   import('./vendor/styles/font-open-sans.css'),
   // @ts-ignore
@@ -39,6 +40,9 @@ H5PStandalone.prototype.initElement = function(el: HTMLElement) {
   const parent = document.createElement('div');
   parent.classList.add('h5p-content');
   parent.setAttribute('data-content-id', `${this.id}`);
+
+  const loader = document.getElementById('loader');
+  loader.remove();
 
   el.append(parent);
 }
@@ -126,20 +130,10 @@ const options = {
   icon: true // Display H5P icon
 }
 
-loadVendor().then(() => {
+loadImports().then(() => {
   new H5PStandalone(el, options);
 });
 
-const logCountElement = document.getElementById('log-count');
-const logsElement = document.getElementById('logs');
-
-let logCount = 0;
 H5P.externalDispatcher.on('xAPI', function (event: any) {
-  logCount++;
-
-  logCountElement.innerText = logCount.toString();
-
-  const codeTag = document.createElement('pre');
-  codeTag.innerText = JSON.stringify(event.data.statement, null, 2);
-  logsElement.append(codeTag);
+  console.debug(JSON.stringify(event.data.statement, null, 2));
 });
