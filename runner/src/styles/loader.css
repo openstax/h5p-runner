@@ -1,7 +1,7 @@
 .loader {
   animation: loadSvg 0.3s forwards 300ms;
   enable-background: new 0 0 57.6 39.1;
-  display: block !important;
+  display: block;
   height: 100%;
   margin: 0 auto;
   opacity: 0;
