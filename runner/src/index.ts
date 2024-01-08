@@ -40,6 +40,9 @@ H5PStandalone.prototype.initElement = function(el: HTMLElement) {
   parent.classList.add('h5p-content');
   parent.setAttribute('data-content-id', `${this.id}`);
 
+  // Remove the loader html & css
+  el.innerHTML = '';
+
   el.append(parent);
 }
 H5PStandalone.prototype.initH5P = async function(generalIntegrationOptions: any, contentOptions: any, customOptions: any) {
@@ -130,16 +133,6 @@ loadVendor().then(() => {
   new H5PStandalone(el, options);
 });
 
-const logCountElement = document.getElementById('log-count');
-const logsElement = document.getElementById('logs');
-
-let logCount = 0;
 H5P.externalDispatcher.on('xAPI', function (event: any) {
-  logCount++;
-
-  logCountElement.innerText = logCount.toString();
-
-  const codeTag = document.createElement('pre');
-  codeTag.innerText = JSON.stringify(event.data.statement, null, 2);
-  logsElement.append(codeTag);
+  console.debug(event.data.statement);
 });
