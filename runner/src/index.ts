@@ -4,6 +4,7 @@ import queryString from 'query-string';
 const loadVendor = () => Promise.all([
   // @ts-ignore
   import('h5p-standalone/dist/frame.bundle'),
+
   // @ts-ignore
   import('./vendor/styles/font-open-sans.css'),
   // @ts-ignore
