@@ -3,9 +3,9 @@
 
 this project hosts h5p libraries in a static site, and provides a runner that can render any supported
 h5p activity given a url to its `contents`. the contents of the activity must be hosted elsewhere. the
-url to the activity is provided via `?content` query param, and a `h5p.json` is expected to be at 
+url to the activity is provided via `?content` query param, and a `h5p.json` is expected to be at
 `givenUrl/h5p.json`. the activity can provide images or other supporting assets referenced from the `h5p.json`
-beside it as normal. (the structure is the same as if you took an `.h5p` archive, unzipped it, and deleted the 
+beside it as normal. (the structure is the same as if you took an `.h5p` archive, unzipped it, and deleted the
 libraries)
 
 
@@ -59,7 +59,7 @@ to assume a role allowed to do the upload first.
 /path/to/ram/upload.bash [environment] h5p/libraries libraries/
 ```
 
-## to deploy runner 
+## to deploy the runner to RAM
 
 the runner is hosted in [RAM](https://github.com/openstax/ram), deploy it with the upload script.
 you will need to use [aws-access](https://github.com/openstax/aws-access#assuming-a-role-through-the-aws-cli)
@@ -70,8 +70,18 @@ to assume a role allowed to do the upload first.
 /path/to/ram/upload.bash [environment] h5p/runner runner/dist
 ```
 
+## to deploy the runner to ancillaries
+
+after building the runner, you will need to open dist/index.html and manually update the head tag to include the content path and baseURI:
+
+```
+<head><script>__CONTENT_PATH="<%= fieldUrl('content') %>"</script><meta charset="utf-8"/><meta charset="utf-8"/><title>Webpack App</title><link rel="icon" href="<%= baseURI %>/favicon.ico"><script defer="defer" src="<%= baseURI %>/bundle.js"></script></head>
+```
+
+you can then upload the dist folder using the Edit Ancillary Types form.
+
 ## h5p vendor code
-the vendor code distributed with h5p-standalone is incomplete and old, we copy it out of the h5p-php-library 
+the vendor code distributed with h5p-standalone is incomplete and old, we copy it out of the h5p-php-library
 and add it to this repo.
 
 copied out of https://github.com/h5p/h5p-php-library
