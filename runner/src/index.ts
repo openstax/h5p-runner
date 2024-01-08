@@ -135,5 +135,5 @@ loadImports().then(() => {
 });
 
 H5P.externalDispatcher.on('xAPI', function (event: any) {
-  console.debug(JSON.stringify(event.data.statement, null, 2));
+  console.debug(event.data.statement);
 });
