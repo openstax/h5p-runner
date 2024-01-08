@@ -1,9 +1,7 @@
 import { H5P as H5PStandalone } from 'h5p-standalone';
 import queryString from 'query-string';
 
-const loadImports = () => Promise.all([
-  // @ts-ignore
-  import('./styles/loader.css'),
+const loadVendor = () => Promise.all([
   // @ts-ignore
   import('h5p-standalone/dist/frame.bundle'),
   // @ts-ignore
@@ -41,8 +39,8 @@ H5PStandalone.prototype.initElement = function(el: HTMLElement) {
   parent.classList.add('h5p-content');
   parent.setAttribute('data-content-id', `${this.id}`);
 
-  const loader = document.getElementById('loader');
-  loader.remove();
+  // Remove the loader html & css
+  el.innerHTML = '';
 
   el.append(parent);
 }
@@ -130,7 +128,7 @@ const options = {
   icon: true // Display H5P icon
 }
 
-loadImports().then(() => {
+loadVendor().then(() => {
   new H5PStandalone(el, options);
 });
 
