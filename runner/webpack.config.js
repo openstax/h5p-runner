@@ -22,6 +22,12 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      {
+        // Copied from https://github.com/tunapanda/h5p-standalone/blob/master/webpack.common.js
+        //H5P jquery should be exported under H5P variable
+        test: require.resolve(path.resolve(__dirname, 'src/vendor/js', 'jquery')),
+        use: 'exports-loader?exports=H5P'
+      },
     ],
   },
   resolve: {
@@ -37,7 +43,7 @@ module.exports = {
       favicon: 'assets/favicon.ico',
     }),
     new webpack.DefinePlugin({
-      'process.env.LIBRARIES_HOST': JSON.stringify(librariesHost) 
+      'process.env.LIBRARIES_HOST': JSON.stringify(librariesHost)
     }),
     new webpack.ProgressPlugin(),
   ],
