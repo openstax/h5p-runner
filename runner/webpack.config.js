@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         // Copied from https://github.com/tunapanda/h5p-standalone/blob/master/webpack.common.js
-        //H5P jquery should be exported under H5P variable
+        // H5P jquery should be exported under H5P variable
         test: require.resolve(path.resolve(__dirname, 'src/vendor/js', 'jquery')),
         use: 'exports-loader?exports=H5P'
       },
