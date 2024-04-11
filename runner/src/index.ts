@@ -1,25 +1,39 @@
 import { H5P as H5PStandalone } from 'h5p-standalone';
 import queryString from 'query-string';
-
-const loadVendor = () => Promise.all([
-  // @ts-ignore
-  import('./vendor/js/frame.bundle'),
-
-  // @ts-ignore
-  import('./vendor/styles/font-open-sans.css'),
-  // @ts-ignore
-  import('./vendor/styles/h5p-confirmation-dialog.css'),
-  // @ts-ignore
-  import('./vendor/styles/h5p-core-button.css'),
-  // @ts-ignore
-  import('./vendor/styles/h5p-hub-registration.css'),
-  // @ts-ignore
-  import('./vendor/styles/h5p-hub-sharing.css'),
-  // @ts-ignore
-  import('./vendor/styles/h5p-tooltip.css'),
-  // @ts-ignore
-  import('./vendor/styles/h5p.css'),
-]);
+// @ts-ignore
+import './vendor/js/jquery';
+// @ts-ignore
+import './vendor/js/h5p';
+// @ts-ignore
+import './vendor/js/h5p-event-dispatcher';
+// @ts-ignore
+import './vendor/js/h5p-x-api';
+// @ts-ignore
+import './vendor/js/h5p-x-api-event';
+// @ts-ignore
+import './vendor/js/h5p-content-type';
+// @ts-ignore
+import './vendor/js/h5p-confirmation-dialog';
+// @ts-ignore
+import './vendor/js/request-queue';
+// @ts-ignore
+import './vendor/js/h5p-action-bar';
+// @ts-ignore
+import './vendor/js/h5p-tooltip';
+// @ts-ignore
+import('./vendor/styles/font-open-sans.css');
+// @ts-ignore
+import('./vendor/styles/h5p-confirmation-dialog.css');
+// @ts-ignore
+import('./vendor/styles/h5p-core-button.css');
+// @ts-ignore
+import('./vendor/styles/h5p-hub-registration.css');
+// @ts-ignore
+import('./vendor/styles/h5p-hub-sharing.css');
+// @ts-ignore
+import('./vendor/styles/h5p-tooltip.css');
+// @ts-ignore
+import('./vendor/styles/h5p.css');
 
 declare global {
   // H5PStandalone adds this
@@ -131,9 +145,7 @@ const options = {
   icon: true // Display H5P icon
 }
 
-loadVendor().then(() => {
-  new H5PStandalone(el, options);
-});
+new H5PStandalone(el, options);
 
 H5P.externalDispatcher.on('xAPI', function (event: any) {
   console.debug(event.data.statement);

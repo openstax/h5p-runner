@@ -9,42 +9,41 @@ if (!librariesHost) {
 }
 
 module.exports = {
-  entry: './src/index.ts',
-  devtool: 'inline-source-map',
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        // Copied from https://github.com/tunapanda/h5p-standalone/blob/master/webpack.common.js
-        // H5P jquery should be exported under H5P variable
-        test: require.resolve(path.resolve(__dirname, 'src/vendor/js', 'jquery')),
-        use: 'exports-loader?exports=H5P'
-      },
+    entry: './src/index.ts',
+    devtool: 'inline-source-map',
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+        {
+          //H5P jquery should be exported under H5P variable
+          test: require.resolve(path.resolve(__dirname, 'src/vendor/js', 'jquery')),
+          use: 'exports-loader?exports=H5P'
+        },
+      ],
+    },
+    resolve: {
+      extensions: ['.ts', '.ts', '.js'],
+    },
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'dist'),
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: 'src/index.html',
+        favicon: 'assets/favicon.ico',
+      }),
+      new webpack.DefinePlugin({
+        'process.env.LIBRARIES_HOST': JSON.stringify(librariesHost)
+      }),
+      new webpack.ProgressPlugin(),
     ],
-  },
-  resolve: {
-    extensions: ['.ts', '.ts', '.js'],
-  },
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      favicon: 'assets/favicon.ico',
-    }),
-    new webpack.DefinePlugin({
-      'process.env.LIBRARIES_HOST': JSON.stringify(librariesHost)
-    }),
-    new webpack.ProgressPlugin(),
-  ],
-};
+  };
