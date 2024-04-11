@@ -1,18 +1,10 @@
 import { H5P as H5PStandalone } from 'h5p-standalone';
 import queryString from 'query-string';
 
-require('./vendor/js/jquery');
-require('./vendor/js/h5p');
-require('./vendor/js/h5p-event-dispatcher');
-require('./vendor/js/h5p-x-api');
-require('./vendor/js/h5p-x-api-event');
-require('./vendor/js/h5p-content-type');
-require('./vendor/js/h5p-confirmation-dialog');
-require('./vendor/js/request-queue');
-require('./vendor/js/h5p-action-bar');
-require('./vendor/js/h5p-tooltip.js');
-
 const loadVendor = () => Promise.all([
+  // @ts-ignore
+  import('./vendor/js/frame.bundle'),
+
   // @ts-ignore
   import('./vendor/styles/font-open-sans.css'),
   // @ts-ignore
