@@ -10,20 +10,13 @@ import './vendor/js/h5p-confirmation-dialog';
 import './vendor/js/request-queue';
 import './vendor/js/h5p-action-bar';
 import './vendor/js/h5p-tooltip';
-// @ts-ignore
-import('./vendor/styles/font-open-sans.css');
-// @ts-ignore
-import('./vendor/styles/h5p-confirmation-dialog.css');
-// @ts-ignore
-import('./vendor/styles/h5p-core-button.css');
-// @ts-ignore
-import('./vendor/styles/h5p-hub-registration.css');
-// @ts-ignore
-import('./vendor/styles/h5p-hub-sharing.css');
-// @ts-ignore
-import('./vendor/styles/h5p-tooltip.css');
-// @ts-ignore
-import('./vendor/styles/h5p.css');
+import './vendor/styles/font-open-sans.css';
+import './vendor/styles/h5p-confirmation-dialog.css';
+import './vendor/styles/h5p-core-button.css';
+import './vendor/styles/h5p-hub-registration.css';
+import './vendor/styles/h5p-hub-sharing.css';
+import './vendor/styles/h5p-tooltip.css';
+import './vendor/styles/h5p.css';
 
 declare global {
   // H5PStandalone adds this
