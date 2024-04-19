@@ -22,6 +22,11 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      {
+        //H5P jquery should be exported under H5P variable
+        test: require.resolve(path.resolve(__dirname, 'src/vendor/js', 'jquery')),
+        use: 'exports-loader?exports=H5P'
+      },
     ],
   },
   resolve: {
@@ -37,7 +42,7 @@ module.exports = {
       favicon: 'assets/favicon.ico',
     }),
     new webpack.DefinePlugin({
-      'process.env.LIBRARIES_HOST': JSON.stringify(librariesHost) 
+      'process.env.LIBRARIES_HOST': JSON.stringify(librariesHost)
     }),
     new webpack.ProgressPlugin(),
   ],
