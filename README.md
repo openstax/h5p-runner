@@ -75,7 +75,7 @@ to assume a role allowed to do the upload first.
 after building the runner, you will need to open dist/index.html and manually update the head tag to include the content path and baseURI:
 
 ```
-<head><script>__CONTENT_PATH="<%= fieldUrl('content') %>"</script><meta charset="utf-8"/><meta charset="utf-8"/><title>Webpack App</title><link rel="icon" href="<%= baseURI %>/favicon.ico"><script defer="defer" src="<%= baseURI %>/bundle.js"></script></head>
+<head><script>__CONTENT_PATH="<%= fieldUrl('content') %>"</script><meta charset="utf-8"/><title><%= ancillary.name %></title><link rel="icon" href="<%= baseURI %>/favicon.ico"><script defer="defer" src="<%= baseURI %>/vendor.bundle.js"></script><script defer="defer" src="<%= baseURI %>/main.bundle.js"></script></head>
 ```
 
 you can then upload the dist folder using the Edit Ancillary Types form.

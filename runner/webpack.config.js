@@ -10,7 +10,7 @@ if (!librariesHost) {
 
 module.exports = {
   entry: './src/index.ts',
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -33,8 +33,19 @@ module.exports = {
     extensions: ['.ts', '.ts', '.js'],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  optimization: {
+   splitChunks: {
+     cacheGroups: {
+       vendor: {
+         test: /[\\/]vendor[\\/]/,
+         name: 'vendor',
+         chunks: 'all',
+       },
+     },
+   },
   },
   plugins: [
     new HtmlWebpackPlugin({
