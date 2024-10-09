@@ -36,7 +36,7 @@ serve the libraries directory
 build the runner
 
 ```
-(cd runner && LIBRARIES_HOST=http://local.com:8081 yarn build)
+(cd runner && LIBRARIES_HOST=http://localhost:8081 yarn build)
 ```
 
 serve the dist folder
