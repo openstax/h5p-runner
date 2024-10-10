@@ -10,8 +10,8 @@ node_modules
 
 # production
 build
-dist
 data/certs
+runner/dist
 
 # misc
 .DS_Store
