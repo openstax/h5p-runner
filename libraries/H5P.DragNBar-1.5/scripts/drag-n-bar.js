@@ -26,6 +26,7 @@ H5P.DragNBar = (function (EventDispatcher) {
     this.dnd = new H5P.DragNDrop(this, $container);
     this.dnd.snap = 10;
     this.newElement = false;
+    this.enabled = true;
     var defaultOptions = {
       disableEditor: false,
       enableCopyPaste: true
@@ -716,7 +717,7 @@ H5P.DragNBar.prototype.addButton = function (button, $list) {
     .click(function () {
       return false;
     }).mousedown(function (event) {
-      if (event.which !== 1) {
+      if (event.which !== 1 || !that.enabled) {
         return;
       }
 
@@ -1184,3 +1185,16 @@ H5P.DragNBar.prototype.remove = function () {
     .off('keyup.dnb' + index, H5P.DragNBar.keyupHandler)
     .off('click.dnb' + index, H5P.DragNBar.clickHandler);
 };
+
+/**
+ * Toggle dragging on/off.
+ * When off can not start dragging in any new elements until turned on.
+ */
+H5P.DragNBar.prototype.toggleDrag = function (enabled = true) {
+  if (enabled === undefined) {
+    this.enabled = !this.enabled;
+  }
+  else {
+    this.enabled = enabled;
+  }
+}

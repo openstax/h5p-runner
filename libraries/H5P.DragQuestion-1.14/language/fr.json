@@ -52,7 +52,8 @@
                     "label": "Sélectionnez les zones de dépôt"
                   },
                   {
-                    "label": "Opacité"
+                    "label": "Opacité",
+                    "description": "Reducing the opacity may result in an insufficient contrast and make the content not accessible."
                   },
                   {
                     "label": "Nombre illimité d'instances pour cet élément",
@@ -68,7 +69,8 @@
                 "label": "Zone de dépôt",
                 "fields": [
                   {
-                    "label": "Etiquette"
+                    "label": "Etiquette",
+                    "description": "The label is used by assistive technologies."
                   },
                   {
                     "label": "Afficher l'étiquette"
@@ -81,7 +83,8 @@
                     "label": "Sélectionnez les éléments qui devront être correctement placés dans cette zone"
                   },
                   {
-                    "label": "Opacité"
+                    "label": "Opacité",
+                    "description": "Reducing the opacity may result in an insufficient contrast and make the content not accessible."
                   },
                   {
                     "label": "Aides et commentaires",
@@ -142,7 +145,7 @@
       ]
     },
     {
-      "label": "Behavioural settings",
+      "label": "Paramètres comportementaux",
       "description": "Ces options vous permettent de contrôler le déroulement de vos activités.",
       "fields": [
         {
@@ -194,13 +197,13 @@
           "description": "Afficher les points obtenus pour chaque réponse. Indisponible quand l'option 'Donner un point pour la question dans sa globalité' est activée."
         },
         {
-          "label": "Show Title",
-          "description": "Uncheck this option if you do not want this title to be displayed. The title will only be displayed in summaries, statistics etc."
+          "label": "Afficher le titre",
+          "description": "Décochez cette option si vous ne voulez pas que ce titre soit affiché. Le titre ne sera affiché que dans les résumés, les statistiques, etc."
         }
       ]
     },
     {
-      "label": "Localize",
+      "label": "Localiser",
       "fields": [
         {
           "label": "Texte pour ouvrir en plein écran",
@@ -261,8 +264,8 @@
       "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
     },
     {
-      "label": "Assistive technology label for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "Vignette de technologie fonctionnelle pour la touche « Réessayer »",
+      "default": "Réessayer la tâche. Réinitialiser toutes les réponses et recommencer la tâche."
     }
   ]
 }

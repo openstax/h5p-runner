@@ -4,11 +4,11 @@
       "label": "Media",
       "fields": [
         {
-          "label": "Type",
-          "description": "Optional media to display above the question."
+          "label": "Typ",
+          "description": "Valfri media att visa ovanför frågan."
         },
         {
-          "label": "Disable image zooming"
+          "label": "Inaktivera zoomning av bild"
         }
       ]
     },
@@ -24,6 +24,11 @@
         "description": "<ul><li>Ord som kan dras-och-släppas ska markeras med en asterisk (*) framför och efter det rätta ordet, eller den rätta frasen.</li><li>Du kan lägga till en ledtråd, genom att använda kolon (:) framför ledtråden.</li><li>För varje tom box så finns det endast ett rätt ord.</li><li>Du kan lägga till feedback som visas när uppgiften är genomförd. Använd '\\+' för feedback på rätta svar och '\\-' för feedback på felaktiga svar.</li></ul>",
         "example": "H5P-innehåll kan redigeras med en *webbläsare:Vad är Chrome för typ av programvara?*. <br /> H5P-innehåll är *interaktivt\\+Rätt! \\-Inte rätt, försök igen!*"
       }
+    },
+    {
+      "label": "Felaktiga svarsalternativ",
+      "placeholder": "*Reykjavík* *Helsinki*",
+      "description": "Ange alternativa lösningar som felaktiga svarsalternativ. Använd samma upplägg med asterisk (*) som för texten."
     },
     {
       "label": "Allmän feedback",
@@ -57,7 +62,7 @@
       "default": "Svara"
     },
     {
-      "label": "Text for \"Submit\" button",
+      "label": "Text för knappen \"Skicka in\"",
       "default": "Submit"
     },
     {

@@ -32,7 +32,8 @@ H5P.Audio = (function ($) {
       autoplay: false,
       audioNotSupported: "Your browser does not support this audio",
       playAudio: "Play audio",
-      pauseAudio: "Pause audio"
+      pauseAudio: "Pause audio",
+      propagateButtonClickEvents: true
     }, params);
 
     // Required if e.g. used in CoursePresentation as area to click on
@@ -70,7 +71,11 @@ H5P.Audio = (function ($) {
       'class': AUDIO_BUTTON + " " + PLAY_BUTTON,
       'aria-label': this.params.playAudio
     }).appendTo(self.$inner)
-      .click( function () {
+      .click( function (event) {
+        if (!self.params.propagateButtonClickEvents){
+          event.stopPropagation();
+        }
+
         if (!self.isEnabledToggleButton()) {
           return;
         }
