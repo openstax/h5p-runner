@@ -144,6 +144,7 @@
                   "max": 100,
                   "step": 5,
                   "default": 100,
+                  "description": "Reducing the opacity may result in an insufficient contrast and make the content not accessible.",
                   "optional": true
                 },
                 {
@@ -174,6 +175,7 @@
                   "widget": "html",
                   "label": "Label",
                   "importance": "medium",
+                  "description": "The label is used by assistive technologies.",
                   "enterMode": "div",
                   "tags": [
                     "strong",
@@ -225,6 +227,7 @@
                   "max": 100,
                   "step": 5,
                   "default": 100,
+                  "description": "Reducing the opacity may result in an insufficient contrast and make the content not accessible.",
                   "optional": true
                 },
                 {

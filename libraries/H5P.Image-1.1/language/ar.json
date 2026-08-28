@@ -17,7 +17,15 @@
     },
     {
       "label": "اسم ملف الصورة",
-      "default": "Image"
+      "default": "الصورة"
+    },
+    {
+      "label": "Expand Image",
+      "default": "Expand Image"
+    },
+    {
+      "label": "Minimize Image",
+      "default": "Minimize Image"
     }
   ]
 }

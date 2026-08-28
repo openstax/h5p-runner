@@ -5,11 +5,11 @@
       "default": "Svara"
     },
     {
-      "label": "Submit answer button",
+      "label": "Knapp för att skicka in svar",
       "default": "Submit"
     },
     {
-      "label": "Retry button",
+      "label": "\"Försök igen\"-knapp",
       "default": "Försök på nytt"
     },
     {
@@ -52,7 +52,8 @@
                     "label": "Välj målområden"
                   },
                   {
-                    "label": "Bakgrunds-opacitet"
+                    "label": "Bakgrunds-opacitet",
+                    "description": "Reducing the opacity may result in an insufficient contrast and make the content not accessible."
                   },
                   {
                     "label": "Oändligt antal instanser av elementet",
@@ -68,7 +69,8 @@
                 "label": "Målområde",
                 "fields": [
                   {
-                    "label": "Etikett"
+                    "label": "Etikett",
+                    "description": "The label is used by assistive technologies."
                   },
                   {
                     "label": "Visa etikett"
@@ -81,7 +83,8 @@
                     "label": "Välj korrekta element"
                   },
                   {
-                    "label": "Bakgrunds-opacitet"
+                    "label": "Bakgrunds-opacitet",
+                    "description": "Reducing the opacity may result in an insufficient contrast and make the content not accessible."
                   },
                   {
                     "label": "Tips och feedback",
